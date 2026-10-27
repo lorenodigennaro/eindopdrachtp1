@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "bauhaus";
+    src: url(Bauhaus\ 93\ Regular.ttf);
+}
+
+/* Hier vind je mijn navigatie Menu! */
 nav {
     /* From https://css.glass */
     background: linear-gradient(to right, #aa5cfd68, #3553fe63);
@@ -15,20 +21,35 @@ nav {
     text-decoration: none;
 }
 
+/* Styling voor de woorden/links in mijn NAV*/
 nav a {
-    color: rgb(232, 231, 231);
+    color: rgba(232, 231, 231, 0.334);
     text-decoration: none;
     padding: 1em;
-}
-
-nav a {
     transition: filter 0.5s ease;
+    transition: color 0.5s ease;
 }
 
+/* Als je hovered word het woord in mijn NAV gloeiend wit*/
 nav a:hover {
-    filter: drop-shadow(0 0 15px #f7f7f5ae);
+    color: #ffff;
+    filter: drop-shadow(0 0 15px #f7f7f5c6);
 }
 
+/* Elke HTML pagina heeft een woord in de nav die deze class heeft, zodat je weet op welke pagina je zit*/
+.menu_gekozen{
+    filter: drop-shadow(0 0 15px #f7f7f5c6);
+    color: rgb(255, 255, 255);
+}
+
+/* Standaard regel voor lettertype kopjes*/
+h1, h2, ul a{
+    font-family: "bauhaus";
+    font-weight: normal;
+    font-size: 18px;
+}
+
+/* Hier begint de styling van mijn mainpage*/
 .body_main {
     width: 100%;
     height: 100vh;
@@ -46,8 +67,6 @@ nav a:hover {
     perspective: 40px;
     /* doet de diepte in z axs*/
     perspective-origin: 50% 300vh;
-    display: flex;
-    flex-direction: column;
 }
 
 .section_main:first-of-type {
@@ -64,13 +83,14 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 300vh;
-    /* zorgt ervoor dat hij niet gestretched word*/
+    /* zorgt ervoor dat hij niet gestretched word, Samen met choice gedaan*/
     transform-origin: 51% 100%;
 }
 
 .section_main:first-of-type img:nth-child(1){
     transform: translateZ(-40px) scale(2);
-    /*plaatst foto in 3d ruimte meer naar achter, en met scale vergroot ik hem weer */
+    /*plaatst foto in 3d ruimte meer naar achter, en met scale vergroot ik hem weer. 
+    Dit doe ik mij elke foto, net ietsjes meer naarvoren, wat het parallex effect geeft*/
 }
 
 .section_main:first-of-type img:nth-child(2) {
@@ -85,6 +105,7 @@ nav a:hover {
     transform: translateZ(-10px) scale(1.25);
 }
 
+/* Dit is het oog 'piece', die geanimeerd is*/
 .section_main:first-of-type img:nth-child(6) {
     width: 200px;
     top: -140vh;
@@ -106,13 +127,7 @@ nav a:hover {
   }
 }
 
-.section_main:nth-of-type(2) {
-    width: 100%;
-    height: 100vh;
-    min-height: 100vh;
-    transform-style: preserve-3d;
-}
-
+/* Standaard regel voor hoe de tekst eruit moet zien op de homepage*/
 .section_main p {
     color: aliceblue;
     font-family: Arial, Helvetica, sans-serif;
@@ -128,26 +143,30 @@ nav a:hover {
     transition: transform 0.3s ease;
 }
 
+/* als je hoeverd, gaat de blur weg, word het dooosje groter en word je cursor een oog*/
 .section_main p:hover {
     filter: blur(0);
     transform: scale(1.05);
+    cursor: url(fotos/oog_cursor.png), pointer;
 }
 
+/* Positionering van mijn titel*/
 .section_main:first-of-type img:nth-child(5) {
     width: 500px;
     height: auto;
     position: absolute;
-    left: 45em;
-    top: 20vh;
+    left: 51em;
+    top: 19vh;
 }
 
+/* Positionering van tekstblok 1*/
 .section_main p:first-of-type {
-    max-width: 300px;
-    max-height: 150px;
+    width: 400px;
+    height: 175px;
     position: absolute;
-    right: 20em;
-    top: 35vh;
-    font-size: 70%;
+    right: 15em;
+    top: 30vh;
+    font-size: 90%;
     animation: pulse 2s infinite ease-in-out;
 }
 
@@ -157,7 +176,7 @@ nav a:hover {
     }
 
     50% {
-        transform: scale(1.05);
+        transform: scale(1.02);
     }
 
     100% {
@@ -183,23 +202,28 @@ nav a:hover {
     font-size: 80%;
 }
 
+/* Apart voor laatste tekstblok, zodat hij veel groter word voor leesbaarheid*/
 .section_main p:nth-of-type(3):hover {
     filter: blur(0);
     transform: scale(1.3);
 }
 
+/* -----------------------------------------------------------------*/
+/* HIER BEGINT DE WIKI PAGINA, styling van body*/
 .body_algemeen {
     background: #000000;
     margin: 0;
     padding: 0;
+    background-image: url(fotos/volledig.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    position: relative;
 }
 
-.main_algemeen {
-    display: flex;
-    justify-content: space-around;
-    padding: 8%;
-}
-
+/* Section styling*/
 .main_algemeen section {
     color: aliceblue;
     font-family: Arial, Helvetica, sans-serif;
@@ -212,29 +236,49 @@ nav a:hover {
     border-radius: 20px;
 }
 
-.Werk {
-    max-width: 300px;
-    max-height: 500px;
-    font-size: 70%;
+/* Positionering en grote van tekstblokjes*/
+.main_algemeen section:first-of-type {
+    max-width: 200px;
+    max-height: 800px;
+    font-size:10px;
+    position: absolute;
+    top: 20vh;
+    right: 20vh;
 }
 
-.social {
-    max-width: 300px;
+.main_algemeen section:nth-of-type(2){
+    max-width: 200px;
     max-height: 500px;
-    font-size: 80%;
+    font-size:10px;
+    position: absolute;
+    top:40vh;
+    left: 10vh;
 }
 
-.overbelasting {
+.main_algemeen section:nth-of-type(3) {
     max-width: 300px;
     max-height: 500px;
-    font-size: 90%;
+    font-size: 10px;
+    position: absolute;
+    top:10vh;
+    left: 15vh;
 }
 
-.Werk a,
-.social a, .overbelasting a{
+/* Linkjes in tekst moetenen opvallen*/
+.main_algemeen a{
     color: #6a9ef2;
 }
 
+
+/* -----------------------------------------------------------------------*/
+/* HIER BEGINT DE BRONNEN PAGINA, Body opzet bronnen*/
+.body_bronnen {
+    background: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+/* Opzet flex positie van bronnen*/
 .main_bronnen {
     display: flex;
     justify-content: center;
@@ -243,6 +287,7 @@ nav a:hover {
     gap: 40px;
 }
 
+/* Styling van tekstblokjes*/
 .main_bronnen section {
     color: aliceblue;
     font-family: Arial, Helvetica, sans-serif;
@@ -255,31 +300,24 @@ nav a:hover {
     border-radius: 20px;
 }
 
-.main_bronnen section h1 {
-    font-size: 6vh;
-}
-
+/* Grote van tekstdozen*/
 .main_bronnen section:first-of-type {
     width: 400px;
     min-height: 500px;
     font-size: 60%;
     padding: 2em;
+    font-size: 2vh;
 }
 
 .main_bronnen section:nth-of-type(2) {
-    max-height: 300px;
+    min-width: 300px;
+    min-height: 600px;
     font-size: 60%;
     padding: 2em;
 }
 
+/* grootte van fotos boek & docu screenshots*/
 .main_bronnen section:nth-of-type(2) img {
     width: 250px;
     height: auto;
-}
-
-.main_bronnen section:last-of-type {
-    width: 150px;
-    max-height: 300px;
-    font-size: 60%;
-    padding: 2em;
 }
